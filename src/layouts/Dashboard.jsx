@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
+    const { logout } = useAuth();
     return (
         <div className="flex min-h-screen bg-gray-100 mx-20">
             {/* Sidebar */}
@@ -24,7 +26,7 @@ const Dashboard = () => {
                             <Link to="/dashboard/reports" className="block">Reports</Link>
                         </li>
                         <li className="px-4 py-2 hover:bg-gray-700">
-                            <Link to="/dashboard/logout" className="block">Logout</Link>
+                            <Link onClick={logout} className="block">Logout</Link>
                         </li>
                     </ul>
                 </nav>

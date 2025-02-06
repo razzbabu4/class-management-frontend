@@ -5,6 +5,7 @@ import Login from "../pages/Authentication/Login";
 import Dashboard from "../layouts/Dashboard";
 import TeacherRegistration from "../pages/Dashboard/User/TeacherRegistration";
 import StudentRegistration from "../pages/Dashboard/User/StudentRegistration";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
                 path: 'create-teacher',
