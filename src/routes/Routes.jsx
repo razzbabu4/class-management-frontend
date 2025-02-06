@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import ErrorPage from "../pages/Error/ErrorPage";
+import Login from "../pages/Authentication/Login";
+import Dashboard from "../layouts/Dashboard";
+import TeacherRegistration from "../pages/Dashboard/User/TeacherRegistration";
+import StudentRegistration from "../pages/Dashboard/User/StudentRegistration";
 
 const router = createBrowserRouter([
     {
@@ -9,9 +13,23 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: 'home',
-                element: <h1>This is home</h1>
-            }
+                path: '/',
+                element: <Login />
+            },
+        ]
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard />,
+        children: [
+            {
+                path: 'create-teacher',
+                element: <TeacherRegistration />
+            },
+            {
+                path: 'create-student',
+                element: <StudentRegistration />
+            },
         ]
     },
 ]);
